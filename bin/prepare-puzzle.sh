@@ -17,4 +17,6 @@ if [[ -d "$PUZZLE" ]] ; then echo "puzzle $DAY/$PUZZLE already exists"; exit 1; 
 
 echo "preparing puzzle for $DAY, $PUZZLE"
 cargo new $PUZZLE
-
+mkdir -p $PUZZLE/input
+touch $PUZZLE/input/sample
+touch $PUZZLE/input/puzzle
