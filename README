@@ -21,3 +21,21 @@ $ cargo run input/puzzle
      Running `/home/noah/dev/advent-of-code-2022/target/debug/puzzle-2 input/puzzle`
 Result total calories: 202346
 ```
+
+## Day 2, Puzzle 1
+
+```sh
+$ cargo run input/puzzle
+    Finished dev [unoptimized + debuginfo] target(s) in 0.00s
+     Running `/home/noah/dev/advent-of-code-2022/target/debug/day-2-puzzle-1 input/puzzle`
+Result total score: 15691
+```
+
+## Day 2, Puzzle 2
+
+```sh
+$ cargo run input/puzzle
+    Finished dev [unoptimized + debuginfo] target(s) in 0.00s
+     Running `/home/noah/dev/advent-of-code-2022/target/debug/day-2-puzzle-2 input/puzzle`
+Result total score: 12989
+```
