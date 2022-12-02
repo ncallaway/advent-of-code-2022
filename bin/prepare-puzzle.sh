@@ -10,13 +10,14 @@ PUZZLE="puzzle-$2"
 
 cd $APP_ROOT
 
-mkdir -p $DAY
-cd $DAY
+mkdir -p solutions
+cd solutions
 
 if [[ -d "$PUZZLE" ]] ; then echo "puzzle $DAY/$PUZZLE already exists"; exit 1; fi
 
 echo "preparing puzzle for $DAY, $PUZZLE"
-cargo new $PUZZLE
-mkdir -p $PUZZLE/input
-touch $PUZZLE/input/sample
-touch $PUZZLE/input/puzzle
+PROJECT="$DAY-$PUZZLE"
+cargo new $PROJECT
+mkdir -p "$PROJECT/input"
+touch $PROJECT/input/sample
+touch $PROJECT/input/puzzle
