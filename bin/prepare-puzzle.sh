@@ -21,3 +21,6 @@ cargo new $PROJECT
 mkdir -p "$PROJECT/input"
 touch $PROJECT/input/sample
 touch $PROJECT/input/puzzle
+
+cd $APP_ROOT
+sed -i "/^\]$/i \    \"solutions/$PROJECT\"," Cargo.toml
