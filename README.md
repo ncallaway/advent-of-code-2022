@@ -60,3 +60,14 @@ $ cargo run -rq day-3 puzzle-2 puzzle
 (61.386µs)
 Priority sum: 2639
 ```
+## Day 4, Puzzle 1
+
+```sh
+
+```
+
+## Day 4, Puzzle 1
+
+```sh
+
+```

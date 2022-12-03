@@ -34,3 +34,5 @@ sed -i "/\_ => None/i \    \(\"$DAY\", \"puzzle-1\"\) => Some\(puzzles::$DAY_UND
 sed -i "/\_ => None/i \    \(\"$DAY\", \"puzzle-2\"\) => Some\(puzzles::$DAY_UNDER::puzzle_2::solve\)," src/main.rs
 
 sed -i "/\_ => \"Solution\"/i \    \(\"$DAY\",\) => \"Total XXX\"," src/main.rs
+
+echo -e "\n## Day $1, Puzzle 1\n\n\`\`\`sh\n\n\`\`\`\n\n## Day $1, Puzzle 1\n\n\`\`\`sh\n\n\`\`\`" >> README.md

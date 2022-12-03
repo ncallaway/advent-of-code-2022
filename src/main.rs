@@ -30,6 +30,7 @@ fn get_solution_message(day: &str, _puzzle: &str) -> &'static str {
     ("day-1",) => "Total calories",
     ("day-2",) => "Total score",
     ("day-3",) => "Priority sum",
+    ("day-4",) => "Total XXX",
     _ => "Solution"
   }
 }
@@ -42,6 +43,8 @@ fn get_solver(day: &str, puzzle: &str) -> Option<Solver> {
     ("day-2", "puzzle-2") => Some(puzzles::day_2::puzzle_2::solve),
     ("day-3", "puzzle-1") => Some(puzzles::day_3::puzzle_1::solve),
     ("day-3", "puzzle-2") => Some(puzzles::day_3::puzzle_2::solve),
+    ("day-4", "puzzle-1") => Some(puzzles::day_4::puzzle_1::solve),
+    ("day-4", "puzzle-2") => Some(puzzles::day_4::puzzle_2::solve),
     _ => None
   }
 }
