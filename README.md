@@ -48,9 +48,15 @@ Total score: 12989
 ## Day 3, Puzzle 1
 
 ```sh
-$ cd solutions/day-2-puzzle-2
-$ cargo run input/puzzle
-    Finished dev [unoptimized + debuginfo] target(s) in 0.00s
-     Running `/home/noah/dev/advent-of-code-2022/target/debug/day-2-puzzle-2 input/puzzle`
-Result total score: 12989
+$ cargo run -rq day-3 puzzle-1 puzzle
+(63.398µs)
+Priority sum: 7811
+```
+
+## Day 3, Puzzle 2
+
+```sh
+$ cargo run -rq day-3 puzzle-2 puzzle
+(61.386µs)
+Priority sum: 2639
 ```
