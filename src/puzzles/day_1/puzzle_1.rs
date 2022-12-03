@@ -1,11 +1,5 @@
-use std::{env, fs};
-
-fn main() {
-  let path = env::args().nth(1).expect("An input file must be provided");
-  let input = fs::read_to_string(path).expect("Unable to read file");
-  let result = max_calories(&input);
-
-  println!("Result total calories: {}", result);
+pub fn solve(input: &str) -> u32 {
+  max_calories(input)
 }
 
 fn max_calories(calories: &str) -> u32 {

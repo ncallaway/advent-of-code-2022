@@ -1,10 +1,20 @@
-[workspace]
+[package]
+name = "ncallaway-advent-of-code-2022"
+version = "0.1.0"
+edition = "2021"
 
-members = [
-    "solutions/day-1-puzzle-1",
-    "solutions/day-1-puzzle-2",
-    "solutions/day-2-puzzle-1",
-    "solutions/day-2-puzzle-2",
-    "solutions/day-3-puzzle-1",
-    "solutions/day-3-puzzle-2",
-]
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+itertools = "0.10.5"
+
+#[workspace]
+
+#members = [
+#    "solutions/day-1-puzzle-1",
+#    "solutions/day-1-puzzle-2",
+#    "solutions/day-2-puzzle-1",
+#    "solutions/day-2-puzzle-2",
+#    "solutions/day-3-puzzle-1",
+#    "solutions/day-3-puzzle-2",
+#]
