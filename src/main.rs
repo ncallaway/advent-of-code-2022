@@ -25,9 +25,10 @@ fn main() {
   println!("({:?})\n{}: {}", duration, msg, result);
 }
 
-fn get_solution_message(day: &str, puzzle: &str) -> &'static str {
-  match (day, puzzle) {
-    ("day-1", "puzzle-1") => "Total calories",
+fn get_solution_message(day: &str, _puzzle: &str) -> &'static str {
+  match (day,) {
+    ("day-1",) => "Total calories",
+    ("day-2",) => "Total score",
     _ => "Solution"
   }
 }
@@ -36,6 +37,8 @@ fn get_solver(day: &str, puzzle: &str) -> Option<Solver> {
   match (day, puzzle) {
     ("day-1", "puzzle-1") => Some(puzzles::day_1::puzzle_1::solve),
     ("day-1", "puzzle-2") => Some(puzzles::day_1::puzzle_2::solve),
+    ("day-2", "puzzle-1") => Some(puzzles::day_2::puzzle_1::solve),
+    ("day-2", "puzzle-2") => Some(puzzles::day_2::puzzle_2::solve),
     _ => None
   }
 }

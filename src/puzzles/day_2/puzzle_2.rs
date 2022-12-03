@@ -1,12 +1,5 @@
-use std::{env, fs};
-
-fn main() {
-  let path = env::args().nth(1).expect("An input file must be provided");
-  let input = fs::read_to_string(path).expect("Unable to read file");
-
-  let result = calculate_score(&input);
-
-  println!("Result total score: {}", result);
+pub fn solve(input: &str) -> u32 {
+  calculate_score(input)
 }
 
 #[derive(PartialEq, Debug, Copy, Clone)]
