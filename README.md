@@ -63,11 +63,15 @@ Priority sum: 2639
 ## Day 4, Puzzle 1
 
 ```sh
-
+$ cargo run -rq day-4 puzzle-1 puzzle
+(91.328µs)
+Pairs with one range enclosing the other: 450
 ```
 
 ## Day 4, Puzzle 1
 
 ```sh
-
+$ cargo run -rq day-4 puzzle-2 puzzle
+(84.948µs)
+Pairs with one range enclosing the other: 837
 ```

@@ -30,7 +30,7 @@ fn get_solution_message(day: &str, _puzzle: &str) -> &'static str {
     ("day-1",) => "Total calories",
     ("day-2",) => "Total score",
     ("day-3",) => "Priority sum",
-    ("day-4",) => "Total XXX",
+    ("day-4",) => "Pairs with one range enclosing the other",
     _ => "Solution"
   }
 }
