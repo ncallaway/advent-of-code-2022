@@ -75,3 +75,23 @@ $ cargo run -rq day-4 puzzle-2 puzzle
 (84.948µs)
 Pairs with one range enclosing the other: 837
 ```
+
+## Day 5, Puzzle 1
+
+```sh
+$ cargo run -rq day-5 puzzle-1 puzzle
+Top of the stacks: ZBDRNPMVH
+
+(33.243852ms)
+(This line is useless, read the previous line): 0
+```
+
+## Day 5, Puzzle 2
+
+```sh
+$ cargo run -rq day-5 puzzle-2 puzzle
+Top of the stacks: WDLPFNNNB
+
+(19.79369ms)
+(This line is useless, read the previous line): 0
+```
