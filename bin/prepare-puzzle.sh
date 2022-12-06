@@ -25,7 +25,7 @@ touch input/$DAY/sample
 touch input/$DAY/puzzle
 
 echo -e "pub mod puzzle_1;\npub mod puzzle_2;\n" > src/puzzles/$DAY_UNDER/mod.rs
-echo -e "pub fn solve(input: &str) -> u32 {\n  0\n}\n\n\n#\[cfg(test)\]\nmod tests \{\n  use super::*;\n\n  #\[test\]\n  fn sample_test() \{\n    assert_eq!(1, 1);\n}\n}\n" > src/puzzles/$DAY_UNDER/puzzle_1.rs
+echo -e "pub fn solve(input: &str) -> u32 {\n  0\n}\n\n\n#[cfg(test)]\nmod tests {\n  use super::*;\n\n  #[test]\n  fn sample_test() {\n    assert_eq!(1, 1);\n  }\n}\n" > src/puzzles/$DAY_UNDER/puzzle_1.rs
 cp src/puzzles/$DAY_UNDER/puzzle_1.rs src/puzzles/$DAY_UNDER/puzzle_2.rs
 
 echo -e "pub mod $DAY_UNDER;" >> src/puzzles/mod.rs
@@ -35,4 +35,4 @@ sed -i "/\_ => None/i \    \(\"$DAY\", \"puzzle-2\"\) => Some\(puzzles::$DAY_UND
 
 sed -i "/\_ => \"Solution\"/i \    \(\"$DAY\",\) => \"Total XXX\"," src/main.rs
 
-echo -e "\n## Day $1, Puzzle 1\n\n\`\`\`sh\n\n\`\`\`\n\n## Day $1, Puzzle 1\n\n\`\`\`sh\n\n\`\`\`" >> README.md
+echo -e "\n## Day $1\n\n\`\`\`sh\n#puzzle-1\n\n#puzzle-2\n\`\`\`\n" >> README.md
