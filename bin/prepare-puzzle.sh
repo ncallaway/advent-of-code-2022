@@ -35,4 +35,4 @@ sed -i "/\_ => None/i \    \(\"$DAY\", \"puzzle-2\"\) => Some\(puzzles::$DAY_UND
 
 sed -i "/\_ => \"Solution\"/i \    \(\"$DAY\",\) => \"Total XXX\"," src/main.rs
 
-echo -e "\n## Day $1\n\n\`\`\`sh\n#puzzle-1\n\n#puzzle-2\n\`\`\`\n" >> README.md
+echo -e "\n## Day $1\n\n\`\`\`sh\n#puzzle-1\n\n#puzzle-2\n\n\`\`\`\n" >> README.md

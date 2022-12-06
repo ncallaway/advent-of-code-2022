@@ -97,3 +97,12 @@ $ cargo run -rq day-6 puzzle-2 puzzle
 (95.046µs)
 Character Position: 3965
 ```
+## Day 7
+
+```sh
+#puzzle-1
+
+#puzzle-2
+
+```
+
