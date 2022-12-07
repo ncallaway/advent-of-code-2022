@@ -1,5 +1,5 @@
-pub fn solve(input: &str) -> u32 {
-  calculate_score(input)
+pub fn solve(input: &str) -> u64 {
+  calculate_score(input).into()
 }
 
 #[derive(PartialEq, Debug, Copy, Clone)]

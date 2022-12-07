@@ -1,6 +1,6 @@
 use super::buffer::RingBuffer;
 
-pub fn solve(input: &str) -> u32 {
+pub fn solve(input: &str) -> u64 {
   let marker_size = 4;
 
   let mut buffer = RingBuffer::new(marker_size);
@@ -12,7 +12,7 @@ pub fn solve(input: &str) -> u32 {
     }
 
     if buffer.len() >= marker_size && mask_count(mask) >= marker_size as u32 {
-      return idx as u32 + 1
+      return idx as u64 + 1
     }
   }
 

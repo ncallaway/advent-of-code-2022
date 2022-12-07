@@ -1,7 +1,7 @@
 use itertools::Itertools;
 
-pub fn solve(input: &str) -> u32 {
-  max_calories(input)
+pub fn solve(input: &str) -> u64 {
+  max_calories(input).into()
 }
 
 fn max_calories(calories: &str) -> u32 {

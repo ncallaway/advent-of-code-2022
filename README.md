@@ -101,8 +101,13 @@ Character Position: 3965
 
 ```sh
 #puzzle-1
+$ cargo run -rq day-7 puzzle-1 puzzle
+(330.708µs)
+Sum Dir Size: 1297683
 
 #puzzle-2
-
+$ cargo run -rq day-7 puzzle-2 puzzle
+(354.67µs)
+Sum Dir Size: 5756764
 ```
 

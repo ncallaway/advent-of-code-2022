@@ -4,7 +4,7 @@ use std::{env, fs};
 use std::time::Instant;
 use std::path::PathBuf;
 
-type Solver = fn(&str) -> u32;
+type Solver = fn(&str) -> u64;
 
 fn main() {
   let start = Instant::now();
@@ -33,7 +33,7 @@ fn get_solution_message(day: &str, _puzzle: &str) -> &'static str {
     ("day-4",) => "Pairs with one range enclosing the other",
     ("day-5",) => "(This line is useless, read the previous line)",
     ("day-6",) => "Character Position",
-    ("day-7",) => "Total XXX",
+    ("day-7",) => "Sum Dir Size",
     _ => "Solution"
   }
 }

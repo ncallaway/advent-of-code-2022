@@ -1,5 +1,5 @@
-pub fn solve(input: &str) -> u32 {
-  sum_priorities(input)
+pub fn solve(input: &str) -> u64 {
+  sum_priorities(input).into()
 }
 
 

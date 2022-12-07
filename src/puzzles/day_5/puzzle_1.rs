@@ -3,7 +3,7 @@ use super::stack::CrateStack;
 use regex::Regex;
 
 
-pub fn solve(input: &str) -> u32 {
+pub fn solve(input: &str) -> u64 {
   let (stack_lines, instruction_lines) = input.split("\n\n").next_tuple().expect("Must have both a stack and instructions");
   let mut stacks = construct_starting_stack(stack_lines);
   apply_instructions(&mut stacks, instruction_lines);

@@ -1,7 +1,7 @@
 use std::ops::Range;
 
-pub fn solve(input: &str) -> u32 {
-  count_overlapping_pairs(input)
+pub fn solve(input: &str) -> u64 {
+  count_overlapping_pairs(input).into()
 }
 
 fn count_overlapping_pairs(input: &str) -> u32 {
