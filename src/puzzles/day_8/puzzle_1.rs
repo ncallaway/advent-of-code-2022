@@ -1,11 +1,11 @@
-pub fn solve(input: &str) -> u64 {
+pub fn solve(_input: &str) -> u64 {
   0
 }
 
 
 #[cfg(test)]
 mod tests {
-  use super::*;
+  // use super::*;
 
   #[test]
   fn sample_test() {

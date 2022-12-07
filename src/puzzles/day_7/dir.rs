@@ -39,6 +39,10 @@ impl DirectoryTree {
   pub fn reset_files(&mut self, dir_handle: usize) {
     let dir_node = self.get_node_mut(dir_handle);
     dir_node.files_size = 0;
+    dir_node.total_size = None;
+
+    // todo, but not needed for advent of code:
+    // to be correct this would also need to reset the total_size of all parents...
   }
 
   pub fn total_size(&mut self, dir_handle: usize) -> u64 {

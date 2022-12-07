@@ -25,7 +25,7 @@ touch input/$DAY/sample
 touch input/$DAY/puzzle
 
 echo -e "pub mod puzzle_1;\npub mod puzzle_2;\n" > src/puzzles/$DAY_UNDER/mod.rs
-echo -e "pub fn solve(input: &str) -> u64 {\n  0\n}\n\n\n#[cfg(test)]\nmod tests {\n  use super::*;\n\n  #[test]\n  fn sample_test() {\n    assert_eq!(1, 1);\n  }\n}\n" > src/puzzles/$DAY_UNDER/puzzle_1.rs
+echo -e "pub fn solve(_input: &str) -> u64 {\n  0\n}\n\n\n#[cfg(test)]\nmod tests {\n  // use super::*;\n\n  #[test]\n  fn sample_test() {\n    assert_eq!(1, 1);\n  }\n}\n" > src/puzzles/$DAY_UNDER/puzzle_1.rs
 cp src/puzzles/$DAY_UNDER/puzzle_1.rs src/puzzles/$DAY_UNDER/puzzle_2.rs
 
 echo -e "pub mod $DAY_UNDER;" >> src/puzzles/mod.rs
