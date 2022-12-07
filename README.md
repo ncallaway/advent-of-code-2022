@@ -111,3 +111,13 @@ $ cargo run -rq day-7 puzzle-2 puzzle
 Sum Dir Size: 5756764
 ```
 
+
+## Day 8
+
+```sh
+#puzzle-1
+
+#puzzle-2
+
+```
+

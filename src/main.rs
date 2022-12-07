@@ -34,6 +34,7 @@ fn get_solution_message(day: &str, _puzzle: &str) -> &'static str {
     ("day-5",) => "(This line is useless, read the previous line)",
     ("day-6",) => "Character Position",
     ("day-7",) => "Sum Dir Size",
+    ("day-8",) => "Total XXX",
     _ => "Solution"
   }
 }
@@ -54,6 +55,8 @@ fn get_solver(day: &str, puzzle: &str) -> Option<Solver> {
     ("day-6", "puzzle-2") => Some(puzzles::day_6::puzzle_2::solve),
     ("day-7", "puzzle-1") => Some(puzzles::day_7::puzzle_1::solve),
     ("day-7", "puzzle-2") => Some(puzzles::day_7::puzzle_2::solve),
+    ("day-8", "puzzle-1") => Some(puzzles::day_8::puzzle_1::solve),
+    ("day-8", "puzzle-2") => Some(puzzles::day_8::puzzle_2::solve),
     _ => None
   }
 }
