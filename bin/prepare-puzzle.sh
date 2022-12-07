@@ -25,7 +25,31 @@ touch input/$DAY/sample
 touch input/$DAY/puzzle
 
 echo -e "pub mod puzzle_1;\npub mod puzzle_2;\n" > src/puzzles/$DAY_UNDER/mod.rs
-echo -e "pub fn solve(_input: &str) -> u64 {\n  0\n}\n\n\n#[cfg(test)]\nmod tests {\n  // use super::*;\n\n  #[test]\n  fn sample_test() {\n    assert_eq!(1, 1);\n  }\n}\n" > src/puzzles/$DAY_UNDER/puzzle_1.rs
+cat <<EOT > src/puzzles/$DAY_UNDER/puzzle_1.rs
+pub fn solve(_input: &str) -> u64 {
+  0
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+
+  #[test]
+  fn solve_with_sample() {
+    let sample_path: std::path::PathBuf = ["input", "$DAY", "sample"].iter().collect();
+    let input = std::fs::read_to_string(sample_path).expect("Unable to read file");
+    assert_eq!(solve(&input), 0);
+  }
+
+  #[test]
+  fn solve_with_puzzle() {
+    let puzzle_path: std::path::PathBuf = ["input", "$DAY", "puzzle"].iter().collect();
+    let input = std::fs::read_to_string(puzzle_path).expect("Unable to read file");
+    assert_eq!(solve(&input), 0);
+  }
+}
+EOT
+# echo -e "pub fn solve(_input: &str) -> u64 {\n  0\n}\n\n\n#[cfg(test)]\nmod tests {\n  // use super::*;\n\n  #[test]\n  fn sample_test() {\n    assert_eq!(1, 1);\n  }\n}\n" > src/puzzles/$DAY_UNDER/puzzle_1.rs
 cp src/puzzles/$DAY_UNDER/puzzle_1.rs src/puzzles/$DAY_UNDER/puzzle_2.rs
 
 echo -e "pub mod $DAY_UNDER;" >> src/puzzles/mod.rs
