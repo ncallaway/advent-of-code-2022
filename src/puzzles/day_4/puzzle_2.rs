@@ -46,6 +46,20 @@ mod tests {
   use super::*;
 
   #[test]
+  fn solve_with_sample() {
+    let sample_path: std::path::PathBuf = ["input", "day-4", "sample"].iter().collect();
+    let input = std::fs::read_to_string(sample_path).expect("Unable to read file");
+    assert_eq!(solve(&input), 4);
+  }
+
+  #[test]
+  fn solve_with_puzzle() {
+    let puzzle_path: std::path::PathBuf = ["input", "day-4", "puzzle"].iter().collect();
+    let input = std::fs::read_to_string(puzzle_path).expect("Unable to read file");
+    assert_eq!(solve(&input), 837);
+  }
+
+  #[test]
   fn is_overlapping_pair_true() {
     assert!(is_overlapping_pair("2-8,3-7"));
     assert!(is_overlapping_pair("5-7,7-9"));

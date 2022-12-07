@@ -45,6 +45,20 @@ mod tests {
   use super::*;
 
   #[test]
+  fn solve_with_sample() {
+    let sample_path: std::path::PathBuf = ["input", "day-4", "sample"].iter().collect();
+    let input = std::fs::read_to_string(sample_path).expect("Unable to read file");
+    assert_eq!(solve(&input), 2);
+  }
+
+  #[test]
+  fn solve_with_puzzle() {
+    let puzzle_path: std::path::PathBuf = ["input", "day-4", "puzzle"].iter().collect();
+    let input = std::fs::read_to_string(puzzle_path).expect("Unable to read file");
+    assert_eq!(solve(&input), 450);
+  }
+
+  #[test]
   fn is_enclosing_pair_true() {
     assert!(is_enclosing_pair("2-8,3-7"));
     assert!(is_enclosing_pair("3-7,2-8"));

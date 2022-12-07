@@ -38,6 +38,20 @@ mod tests {
     use super::*;
 
     #[test]
+    fn solve_with_sample() {
+      let sample_path: std::path::PathBuf = ["input", "day-1", "sample"].iter().collect();
+      let input = std::fs::read_to_string(sample_path).expect("Unable to read file");
+      assert_eq!(solve(&input), 24000);
+    }
+
+    #[test]
+    fn solve_with_puzzle() {
+      let puzzle_path: std::path::PathBuf = ["input", "day-1", "puzzle"].iter().collect();
+      let input = std::fs::read_to_string(puzzle_path).expect("Unable to read file");
+      assert_eq!(solve(&input), 69501);
+    }
+
+    #[test]
     fn max_calories_sums_basic_calories() {
         assert_eq!(max_calories("100\n200"), 300);
     }

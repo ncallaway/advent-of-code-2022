@@ -55,6 +55,20 @@ mod tests {
   use super::*;
 
   #[test]
+  fn solve_with_sample() {
+    let sample_path: std::path::PathBuf = ["input", "day-3", "sample"].iter().collect();
+    let input = std::fs::read_to_string(sample_path).expect("Unable to read file");
+    assert_eq!(solve(&input), 70);
+  }
+
+  #[test]
+  fn solve_with_puzzle() {
+    let puzzle_path: std::path::PathBuf = ["input", "day-3", "puzzle"].iter().collect();
+    let input = std::fs::read_to_string(puzzle_path).expect("Unable to read file");
+    assert_eq!(solve(&input), 2639);
+  }
+
+  #[test]
   fn calculate_priority_sample() {
       assert_eq!(calculate_priority('a'), 1);
       assert_eq!(calculate_priority('z'), 26);

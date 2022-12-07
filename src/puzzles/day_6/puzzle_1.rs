@@ -39,6 +39,20 @@ mod tests {
   use super::*;
 
   #[test]
+  fn solve_with_sample() {
+    let sample_path: std::path::PathBuf = ["input", "day-6", "sample"].iter().collect();
+    let input = std::fs::read_to_string(sample_path).expect("Unable to read file");
+    assert_eq!(solve(&input), 7);
+  }
+
+  #[test]
+  fn solve_with_puzzle() {
+    let puzzle_path: std::path::PathBuf = ["input", "day-6", "puzzle"].iter().collect();
+    let input = std::fs::read_to_string(puzzle_path).expect("Unable to read file");
+    assert_eq!(solve(&input), 1109);
+  }
+
+  #[test]
   fn solve_test() {
     assert_eq!(solve("mjqjpqmgbljsphdztnvjfqwrcgsmlb"), 7);
     assert_eq!(solve("bvwbjplbgvbhsrlpgdmjqwftvncz"), 5);

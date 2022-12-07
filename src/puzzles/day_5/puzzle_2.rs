@@ -4,13 +4,16 @@ use regex::Regex;
 
 
 pub fn solve(input: &str) -> u64 {
+  let tops = solve_str(input);
+  println!("Top of the stacks: {}\n", tops);
+  0
+}
+
+fn solve_str(input: &str) -> String {
   let (stack_lines, instruction_lines) = input.split("\n\n").next_tuple().expect("Must have both a stack and instructions");
   let mut stacks = construct_starting_stack(stack_lines);
   apply_instructions(&mut stacks, instruction_lines);
-  let tops = collect_tops(&stacks);
-
-  println!("Top of the stacks: {}\n", tops);
-  0
+  collect_tops(&stacks)
 }
 
 /// Construct the starting stack from the input. Returns a tuple
@@ -93,10 +96,19 @@ const SAMPLE_STACKS: &str = r#"
 [Z] [M] [P]
  1   2   3"#;
 
-  #[test]
-  fn a_sample_test() {
-    assert_eq!(1, 1);
-  }
+ #[test]
+ fn solve_with_sample() {
+   let sample_path: std::path::PathBuf = ["input", "day-5", "sample"].iter().collect();
+   let input = std::fs::read_to_string(sample_path).expect("Unable to read file");
+   assert_eq!(solve_str(&input), "MCD");
+ }
+
+ #[test]
+ fn solve_with_puzzle() {
+   let puzzle_path: std::path::PathBuf = ["input", "day-5", "puzzle"].iter().collect();
+   let input = std::fs::read_to_string(puzzle_path).expect("Unable to read file");
+   assert_eq!(solve_str(&input), "WDLPFNNNB");
+ }
 
   #[test]
   fn construct_minimal_stacks() {

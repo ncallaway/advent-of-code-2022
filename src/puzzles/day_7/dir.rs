@@ -18,7 +18,6 @@ impl DirectoryTree {
     return self.all_directories.iter().enumerate().map(|(idx, _)| idx)
   }
 
-  #[allow(dead_code)]
   pub fn get_name(&self, dir_handle: usize) -> Option<&str> {
     let dir_node = self.get_node(dir_handle);
     let parent_handle = dir_node.parent?;
@@ -105,35 +104,15 @@ impl DirectoryNode {
     DirectoryNode { files_size: 0, total_size: None, parent, children: HashMap::new() }
   }
 
-  // fn get_child_idx(&self, dir: &str) -> Option<usize> {
-  //   self.children.get(dir).copied()
-  // }
-
   fn add_child(&mut self, dir: &str, child_idx: usize) {
     self.children.insert(dir.to_string(), child_idx);
   }
 
-  #[allow(dead_code)]
   fn get_child_name(&self, child_idx: usize) -> Option<&str> {
     self.children.iter()
       .find_map(|(k,v)| if *v == child_idx { Some(k) } else { None } )
       .map(|x| &**x)
   }
-
-  // fn add_file(&mut self, file_size: u64) {
-  //   self.files_size += file_size;
-  // }
-
-  // fn reset_files(&mut self) {
-  //   self.files_size = 0;
-  // }
-
-  // fn total_size(&self, tree: &DirectoryTree) -> u64 {
-  //   self.children.values().map(|dir_idx| {
-  //     let dir = &tree.all_directories[*dir_idx];
-  //     dir.total_size(tree)
-  //   }).sum::<u64>() + self.files_size
-  // }
 }
 
 #[cfg(test)]
