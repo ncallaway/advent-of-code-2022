@@ -12,8 +12,12 @@ These are starting out in Rust, because I'm not very good at Rust.
 - `[puzzle]` is one of `puzzle-1 | puzzle-2`
 - `[type]` is one of `sample | puzzle`, where `sample` runs with the sample input, and `puzzle` runs with the puzzle input
 
+## Notes
 
-## Day 1
+- Day 8, Puzzle 2: I'm not thrilled with the quality of this. There's a lot of copy and paste code, feels like it could be a lot cleaner.
+
+## Puzzles
+### Day 1
 
 ```sh
 # puzzle-1
@@ -27,7 +31,7 @@ $ cargo run -rq day-1 puzzle-2 puzzle
 Solution: 202346
 ```
 
-## Day 2
+### Day 2
 
 ```sh
 # puzzle-1
@@ -40,7 +44,7 @@ $ cargo run -rq day-2 puzzle-2 puzzle
 Total score: 12989
 ```
 
-## Day 3
+### Day 3
 
 ```sh
 # puzzle-1
@@ -52,7 +56,7 @@ $ cargo run -rq day-3 puzzle-2 puzzle
 (61.386µs)
 Priority sum: 2639
 ```
-## Day 4
+### Day 4
 
 ```sh
 # puzzle-1
@@ -66,7 +70,7 @@ $ cargo run -rq day-4 puzzle-2 puzzle
 Pairs with one range enclosing the other: 837
 ```
 
-## Day 5
+### Day 5
 
 ```sh
 # puzzle-1
@@ -84,7 +88,7 @@ Top of the stacks: WDLPFNNNB
 (This line is useless, read the previous line): 0
 ```
 
-## Day 6
+### Day 6
 
 ```sh
 # puzzle-1
@@ -97,7 +101,7 @@ $ cargo run -rq day-6 puzzle-2 puzzle
 (95.046µs)
 Character Position: 3965
 ```
-## Day 7
+### Day 7
 
 ```sh
 #puzzle-1
@@ -111,8 +115,7 @@ $ cargo run -rq day-7 puzzle-2 puzzle
 Sum Dir Size: 5756764
 ```
 
-
-## Day 8
+### Day 8
 
 ```sh
 #puzzle-1
@@ -126,8 +129,7 @@ $ cargo run -rq day-8 puzzle-2 puzzle
 Trees: 672280
 ```
 
-
-## Day 9
+### Day 9
 
 ```sh
 #puzzle-1
@@ -135,4 +137,3 @@ Trees: 672280
 #puzzle-2
 
 ```
-

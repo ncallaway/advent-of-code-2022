@@ -9,18 +9,12 @@ DAY_UNDER="day_$1"
 
 cd $APP_ROOT
 
-
-
-
 if [[ -d "src/puzzles/$DAY_UNDER" ]] ; then echo "puzzle for $DAY already exists"; exit 1; fi
 
 echo "preparing puzzle for $DAY"
 mkdir -p input/$DAY
 mkdir -p src/puzzles/$DAY_UNDER
 
-# PROJECT="$DAY-$PUZZLE"
-# cargo new $PROJECT
-# mkdir -p "$PROJECT/input"
 touch input/$DAY/sample
 touch input/$DAY/puzzle
 
@@ -49,7 +43,7 @@ mod tests {
   }
 }
 EOT
-# echo -e "pub fn solve(_input: &str) -> u64 {\n  0\n}\n\n\n#[cfg(test)]\nmod tests {\n  // use super::*;\n\n  #[test]\n  fn sample_test() {\n    assert_eq!(1, 1);\n  }\n}\n" > src/puzzles/$DAY_UNDER/puzzle_1.rs
+
 cp src/puzzles/$DAY_UNDER/puzzle_1.rs src/puzzles/$DAY_UNDER/puzzle_2.rs
 
 echo -e "pub mod $DAY_UNDER;" >> src/puzzles/mod.rs
@@ -59,4 +53,4 @@ sed -i "/\_ => None/i \    \(\"$DAY\", \"puzzle-2\"\) => Some\(puzzles::$DAY_UND
 
 sed -i "/\_ => \"Solution\"/i \    \(\"$DAY\",\) => \"Total XXX\"," src/main.rs
 
-echo -e "\n## Day $1\n\n\`\`\`sh\n#puzzle-1\n\n#puzzle-2\n\n\`\`\`\n" >> README.md
+echo -e "\n### Day $1\n\n\`\`\`sh\n#puzzle-1\n\n#puzzle-2\n\n\`\`\`\n" >> README.md
