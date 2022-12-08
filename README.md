@@ -116,8 +116,13 @@ Sum Dir Size: 5756764
 
 ```sh
 #puzzle-1
+$ cargo run -rq day-8 puzzle-1 puzzle
+(139.021µs)
+Trees: 1698
 
 #puzzle-2
-
+$ cargo run -rq day-8 puzzle-2 puzzle
+(674.857µs)
+Trees: 672280
 ```
 

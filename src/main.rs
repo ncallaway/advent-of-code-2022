@@ -34,7 +34,7 @@ fn get_solution_message(day: &str, _puzzle: &str) -> &'static str {
     ("day-5",) => "(This line is useless, read the previous line)",
     ("day-6",) => "Character Position",
     ("day-7",) => "Sum Dir Size",
-    ("day-8",) => "Total XXX",
+    ("day-8",) => "Trees",
     _ => "Solution"
   }
 }
