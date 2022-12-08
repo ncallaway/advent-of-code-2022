@@ -18,17 +18,17 @@ impl DirectoryTree {
     return self.all_directories.iter().enumerate().map(|(idx, _)| idx)
   }
 
-  pub fn get_name(&self, dir_handle: usize) -> Option<&str> {
-    let dir_node = self.get_node(dir_handle);
-    let parent_handle = dir_node.parent?;
-    let parent_node = self.get_node(parent_handle);
-    parent_node.get_child_name(dir_handle)
-  }
+  // pub fn get_name(&self, dir_handle: usize) -> Option<&str> {
+  //   let dir_node = self.get_node(dir_handle);
+  //   let parent_handle = dir_node.parent?;
+  //   let parent_node = self.get_node(parent_handle);
+  //   parent_node.get_child_name(dir_handle)
+  // }
 
-  pub fn parent_handle(&self, dir_handle: usize) -> Option<usize> {
-    let dir_node = self.get_node(dir_handle);
-    dir_node.parent
-  }
+  // pub fn parent_handle(&self, dir_handle: usize) -> Option<usize> {
+  //   let dir_node = self.get_node(dir_handle);
+  //   dir_node.parent
+  // }
 
   pub fn add_file(&mut self, dir_handle: usize, file_size: u64) {
     let dir_node = self.get_node_mut(dir_handle);
@@ -95,24 +95,24 @@ impl DirectoryTree {
 struct DirectoryNode {
   files_size: u64,
   total_size: Option<u64>,
-  parent: Option<usize>,
+  // parent: Option<usize>,
   children: HashMap<String, usize>,
 }
 
 impl DirectoryNode {
-  fn new(parent: Option<usize>)-> DirectoryNode {
-    DirectoryNode { files_size: 0, total_size: None, parent, children: HashMap::new() }
+  fn new(_parent: Option<usize>)-> DirectoryNode {
+    DirectoryNode { files_size: 0, total_size: None, /* parent, */ children: HashMap::new() }
   }
 
   fn add_child(&mut self, dir: &str, child_idx: usize) {
     self.children.insert(dir.to_string(), child_idx);
   }
 
-  fn get_child_name(&self, child_idx: usize) -> Option<&str> {
-    self.children.iter()
-      .find_map(|(k,v)| if *v == child_idx { Some(k) } else { None } )
-      .map(|x| &**x)
-  }
+  // fn get_child_name(&self, child_idx: usize) -> Option<&str> {
+  //   self.children.iter()
+  //     .find_map(|(k,v)| if *v == child_idx { Some(k) } else { None } )
+  //     .map(|x| &**x)
+  // }
 }
 
 #[cfg(test)]
@@ -149,15 +149,15 @@ mod tests {
     assert_eq!(tree.total_size(root), 60);
   }
 
-  #[test]
-  fn get_child_names() {
-    let mut tree = DirectoryTree::new();
-    let root = tree.root_handle();
-    let a = tree.add_dir("a", 0);
-    let b = tree.add_dir("b", 0);
+  // #[test]
+  // fn get_child_names() {
+  //   let mut tree = DirectoryTree::new();
+  //   let root = tree.root_handle();
+  //   let a = tree.add_dir("a", 0);
+  //   let b = tree.add_dir("b", 0);
 
-    assert_eq!(tree.get_name(a), Some("a"));
-    assert_eq!(tree.get_name(b), Some("b"));
-    assert_eq!(tree.get_name(root), None);
-  }
+  //   assert_eq!(tree.get_name(a), Some("a"));
+  //   assert_eq!(tree.get_name(b), Some("b"));
+  //   assert_eq!(tree.get_name(root), None);
+  // }
 }
