@@ -126,3 +126,13 @@ $ cargo run -rq day-8 puzzle-2 puzzle
 Trees: 672280
 ```
 
+
+## Day 9
+
+```sh
+#puzzle-1
+
+#puzzle-2
+
+```
+
