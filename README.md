@@ -141,3 +141,13 @@ Tail Positions: 5858
 (612.903µs)
 Tail Positions: 2602
 ```
+
+### Day 10
+
+```sh
+#puzzle-1
+
+#puzzle-2
+
+```
+
