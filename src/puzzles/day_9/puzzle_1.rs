@@ -1,16 +1,22 @@
 use std::collections::HashSet;
 
 pub fn solve(input: &str) -> u64 {
-  let set = run(input);
+  let set = run(input, 2);
   set.len() as u64
 }
 
-fn run(input: &str) -> HashSet<RopePosition>{
-  let mut head = RopePosition { x: 0, y: 0 };
-  let mut tail = RopePosition { x: 0, y: 0 };
-  let mut tail_positions: HashSet<RopePosition> = HashSet::new();
 
-  tail_positions.insert(tail.clone());
+#[derive(Hash, Eq, PartialEq, Debug, Clone)]
+pub struct RopePosition {
+  x: i32,
+  y: i32
+}
+
+pub fn run(input: &str, rope_size: usize) -> HashSet<RopePosition>{
+
+  let mut rope = vec![RopePosition { x: 0, y: 0 }; rope_size];
+  let mut tail_positions: HashSet<RopePosition> = HashSet::new();
+  tail_positions.insert(rope[rope_size-1].clone());
 
   for line in input.split('\n') {
     let mut cmd = parse_command(line).expect("A command was not valid");
@@ -18,10 +24,13 @@ fn run(input: &str) -> HashSet<RopePosition>{
     while !cmd.is_done() {
       // apply command
 
-      move_head(&mut head, &cmd);
-      move_tail(&mut tail, &head);
+      move_head(&mut rope[0], &cmd);
+      for idx in 1..rope_size {
+        let leader = rope[idx - 1].clone();
+        move_tail(&mut rope[idx], leader);
+      }
 
-      tail_positions.insert(tail.clone());
+      tail_positions.insert(rope[rope_size-1].clone());
       cmd.reduce_amount();
     }
   }
@@ -38,9 +47,9 @@ fn move_head(head: &mut RopePosition, cmd: &Command) {
   }
 }
 
-fn move_tail(tail: &mut RopePosition, head: &RopePosition) {
-  let x_delta = head.x - tail.x;
-  let y_delta = head.y - tail.y;
+fn move_tail(tail: &mut RopePosition, leader: RopePosition) {
+  let x_delta = leader.x - tail.x;
+  let y_delta = leader.y - tail.y;
 
   if x_delta.abs() <= 1 && y_delta.abs() <= 1 {
     // no change is necessary, because we are adjacent
@@ -51,11 +60,6 @@ fn move_tail(tail: &mut RopePosition, head: &RopePosition) {
   tail.y += y_delta.signum();
 }
 
-#[derive(Hash, Eq, PartialEq, Debug, Clone)]
-struct RopePosition {
-  x: i32,
-  y: i32
-}
 
 fn parse_command(line: &str) -> Option<Command> {
   let (cmd, amount) = line.split_once(' ')?;
@@ -99,7 +103,6 @@ impl Command {
     self.amount() == 0
   }
 }
-
 #[cfg(test)]
 mod tests {
   use super::*;
@@ -120,7 +123,7 @@ mod tests {
 
   #[test]
   fn test_run() {
-    let set = run("R 2\nD 2");
+    let set = run("R 2\nD 2", 2);
 
     let expected = vec![
       RopePosition { x: 0, y: 0 },
