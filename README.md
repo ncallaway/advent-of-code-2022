@@ -133,7 +133,11 @@ Trees: 672280
 
 ```sh
 #puzzle-1
+$ cargo run -rq day-9 puzzle-1 puzzle
+(561.962µs)
+Tail Positions: 5858
 
-#puzzle-2
-
+#puzzle-2$ cargo run -rq day-9 puzzle-2 puzzle
+(612.903µs)
+Tail Positions: 2602
 ```
