@@ -164,3 +164,13 @@ $ cargo run -rq day-10 puzzle-2 puzzle
 Sum Signal Strength: 0
 ```
 
+
+### Day 11
+
+```sh
+#puzzle-1
+
+#puzzle-2
+
+```
+

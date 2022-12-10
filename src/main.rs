@@ -37,6 +37,7 @@ fn get_solution_message(day: &str, _puzzle: &str) -> &'static str {
     ("day-8",) => "Trees",
     ("day-9",) => "Tail Positions",
     ("day-10",) => "Sum Signal Strength",
+    ("day-11",) => "Total XXX",
     _ => "Solution"
   }
 }
@@ -63,6 +64,8 @@ fn get_solver(day: &str, puzzle: &str) -> Option<Solver> {
     ("day-9", "puzzle-2") => Some(puzzles::day_9::puzzle_2::solve),
     ("day-10", "puzzle-1") => Some(puzzles::day_10::puzzle_1::solve),
     ("day-10", "puzzle-2") => Some(puzzles::day_10::puzzle_2::solve),
+    ("day-11", "puzzle-1") => Some(puzzles::day_11::puzzle_1::solve),
+    ("day-11", "puzzle-2") => Some(puzzles::day_11::puzzle_2::solve),
     _ => None
   }
 }
