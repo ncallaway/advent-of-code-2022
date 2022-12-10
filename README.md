@@ -146,8 +146,21 @@ Tail Positions: 2602
 
 ```sh
 #puzzle-1
+$ cargo run -rq day-10 puzzle-1 puzzle
+(21.6µs)
+Sum Signal Strength: 13180
 
 #puzzle-2
-
+$ cargo run -rq day-10 puzzle-2 puzzle
+----------------- CRT ------------------
+#### #### ####  ##  #  #   ##  ##  ###
+#       # #    #  # #  #    # #  # #  #
+###    #  ###  #    ####    # #  # ###
+#     #   #    #    #  #    # #### #  #
+#    #    #    #  # #  # #  # #  # #  #
+#### #### #     ##  #  #  ##  #  # ###
+--------------- END CRT ----------------
+(31.807µs)
+Sum Signal Strength: 0
 ```
 

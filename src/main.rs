@@ -36,7 +36,7 @@ fn get_solution_message(day: &str, _puzzle: &str) -> &'static str {
     ("day-7",) => "Sum Dir Size",
     ("day-8",) => "Trees",
     ("day-9",) => "Tail Positions",
-    ("day-10",) => "Total XXX",
+    ("day-10",) => "Sum Signal Strength",
     _ => "Solution"
   }
 }
