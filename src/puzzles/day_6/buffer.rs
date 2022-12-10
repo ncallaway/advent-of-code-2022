@@ -39,7 +39,7 @@ impl<'a> std::iter::IntoIterator for &'a RingBuffer {
   type IntoIter = std::slice::Iter<'a, char>;
 
   fn into_iter(self) -> Self::IntoIter {
-      self.internal.as_slice().into_iter()
+      self.internal.as_slice().iter()
   }
 }
 

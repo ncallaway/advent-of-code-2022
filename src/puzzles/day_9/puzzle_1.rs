@@ -40,10 +40,10 @@ pub fn run(input: &str, rope_size: usize) -> HashSet<RopePosition>{
 
 fn move_head(head: &mut RopePosition, cmd: &Command) {
   match cmd {
-    Command::RIGHT(_) => head.x += 1,
-    Command::LEFT(_) => head.x -= 1,
-    Command::DOWN(_) => head.y -= 1,
-    Command::UP(_) => head.y += 1,
+    Command::Right(_) => head.x += 1,
+    Command::Left(_) => head.x -= 1,
+    Command::Down(_) => head.y -= 1,
+    Command::Up(_) => head.y += 1,
   }
 }
 
@@ -67,26 +67,26 @@ fn parse_command(line: &str) -> Option<Command> {
   let amount = amount.parse::<u8>().unwrap();
 
   match cmd {
-    "R" => Some(Command::RIGHT(amount)),
-    "L" => Some(Command::LEFT(amount)),
-    "D" => Some(Command::DOWN(amount)),
-    "U" => Some(Command::UP(amount)),
+    "R" => Some(Command::Right(amount)),
+    "L" => Some(Command::Left(amount)),
+    "D" => Some(Command::Down(amount)),
+    "U" => Some(Command::Up(amount)),
     _ => None
   }
 }
 
 #[derive(Debug, PartialEq)]
 enum Command {
-  RIGHT(u8),
-  LEFT(u8),
-  UP(u8),
-  DOWN(u8)
+  Right(u8),
+  Left(u8),
+  Up(u8),
+  Down(u8)
 }
 
 impl Command {
   fn amount(&self) -> u8 {
     match self {
-      Command::RIGHT(amt) | Command::LEFT(amt) | Command::UP(amt) | Command::DOWN(amt) => *amt,
+      Command::Right(amt) | Command::Left(amt) | Command::Up(amt) | Command::Down(amt) => *amt,
     }
   }
 
@@ -95,7 +95,7 @@ impl Command {
     let updated_amount = if amount > 0 {amount - 1 } else { 0 };
 
     match self {
-      Command::RIGHT(amt) | Command::LEFT(amt) | Command::UP(amt) | Command::DOWN(amt) => *amt = updated_amount,
+      Command::Right(amt) | Command::Left(amt) | Command::Up(amt) | Command::Down(amt) => *amt = updated_amount,
     }
   }
 
@@ -136,15 +136,15 @@ mod tests {
 
   #[test]
   fn test_parse_command() {
-    assert_eq!(parse_command("R 4"), Some(Command::RIGHT(4)));
-    assert_eq!(parse_command("L 2"), Some(Command::LEFT(2)));
-    assert_eq!(parse_command("D 0"), Some(Command::DOWN(0)));
-    assert_eq!(parse_command("U 5"), Some(Command::UP(5)));
+    assert_eq!(parse_command("R 4"), Some(Command::Right(4)));
+    assert_eq!(parse_command("L 2"), Some(Command::Left(2)));
+    assert_eq!(parse_command("D 0"), Some(Command::Down(0)));
+    assert_eq!(parse_command("U 5"), Some(Command::Up(5)));
   }
 
   #[test]
   fn test_cmd_amounts() {
-    let mut right = Command::RIGHT(4);
+    let mut right = Command::Right(4);
     assert_eq!(right.amount(), 4);
 
     right.reduce_amount();

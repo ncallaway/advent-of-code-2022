@@ -58,11 +58,11 @@ fn find_visible_count(grid: &Grid) -> usize {
     for row in 1..grid.height-1 {
       // let idx = grid.index(row, col);
       let cell = grid.value(row, col);
-      let value = read_value(cell, Register::VALUE);
-      let l = read_value(cell, Register::LEFT);
-      let r = read_value(cell, Register::RIGHT);
-      let t = read_value(cell, Register::TOP);
-      let b = read_value(cell, Register::BOTTOM);
+      let value = read_value(cell, Register::Value);
+      let l = read_value(cell, Register::Left);
+      let r = read_value(cell, Register::Right);
+      let t = read_value(cell, Register::Top);
+      let b = read_value(cell, Register::Bottom);
 
       if value > l || value > r || value > t || value > b {
         count += 1;
@@ -84,11 +84,11 @@ fn walk_top_left(grid: &mut Grid) {
       let left = grid.value(row, col-1);
       let top = grid.value(row-1, col);
 
-      let cell_left = std::cmp::max(read_value(left, Register::LEFT), read_value(left, Register::VALUE));
-      let cell_top = std::cmp::max(read_value(top, Register::TOP), read_value(top, Register::VALUE));
+      let cell_left = std::cmp::max(read_value(left, Register::Left), read_value(left, Register::Value));
+      let cell_top = std::cmp::max(read_value(top, Register::Top), read_value(top, Register::Value));
 
-      cell = write_value(cell, cell_left, Register::LEFT);
-      cell = write_value(cell, cell_top, Register::TOP);
+      cell = write_value(cell, cell_left, Register::Left);
+      cell = write_value(cell, cell_top, Register::Top);
 
       grid.set_value(cell, row, col);
     }
@@ -106,11 +106,11 @@ fn walk_bottom_right(grid: &mut Grid) {
       let right = grid.value(row, col+1);
       let bottom = grid.value(row+1, col);
 
-      let cell_right = std::cmp::max(read_value(right, Register::RIGHT), read_value(right, Register::VALUE));
-      let cell_bottom = std::cmp::max(read_value(bottom, Register::BOTTOM), read_value(bottom, Register::VALUE));
+      let cell_right = std::cmp::max(read_value(right, Register::Right), read_value(right, Register::Value));
+      let cell_bottom = std::cmp::max(read_value(bottom, Register::Bottom), read_value(bottom, Register::Value));
 
-      cell = write_value(cell, cell_right, Register::RIGHT);
-      cell = write_value(cell, cell_bottom, Register::BOTTOM);
+      cell = write_value(cell, cell_right, Register::Right);
+      cell = write_value(cell, cell_bottom, Register::Bottom);
 
       grid.set_value(cell, row, col);
     }
@@ -119,11 +119,11 @@ fn walk_bottom_right(grid: &mut Grid) {
 
 
 enum Register {
-  VALUE = 0,
-  LEFT = 1,
-  TOP = 2,
-  RIGHT = 3,
-  BOTTOM = 4,
+  Value = 0,
+  Left = 1,
+  Top = 2,
+  Right = 3,
+  Bottom = 4,
 }
 
 
@@ -180,13 +180,13 @@ mod tests {
     let mut grid = initialize_grid(grid_str);
     walk_top_left(&mut grid);
 
-    assert_eq!(read_value(grid.value(1, 1), Register::VALUE), 6);
-    assert_eq!(read_value(grid.value(1, 1), Register::LEFT), 5);
-    assert_eq!(read_value(grid.value(1, 1), Register::TOP), 3);
+    assert_eq!(read_value(grid.value(1, 1), Register::Value), 6);
+    assert_eq!(read_value(grid.value(1, 1), Register::Left), 5);
+    assert_eq!(read_value(grid.value(1, 1), Register::Top), 3);
 
-    assert_eq!(read_value(grid.value(1, 2), Register::VALUE), 7);
-    assert_eq!(read_value(grid.value(1, 2), Register::LEFT), 6);
-    assert_eq!(read_value(grid.value(1, 2), Register::TOP), 4);
+    assert_eq!(read_value(grid.value(1, 2), Register::Value), 7);
+    assert_eq!(read_value(grid.value(1, 2), Register::Left), 6);
+    assert_eq!(read_value(grid.value(1, 2), Register::Top), 4);
   }
 
   #[test]
@@ -195,13 +195,13 @@ mod tests {
     let mut grid = initialize_grid(grid_str);
     walk_bottom_right(&mut grid);
 
-    assert_eq!(read_value(grid.value(1, 1), Register::VALUE), 6);
-    assert_eq!(read_value(grid.value(1, 1), Register::BOTTOM), 0);
-    assert_eq!(read_value(grid.value(1, 1), Register::RIGHT), 8);
+    assert_eq!(read_value(grid.value(1, 1), Register::Value), 6);
+    assert_eq!(read_value(grid.value(1, 1), Register::Bottom), 0);
+    assert_eq!(read_value(grid.value(1, 1), Register::Right), 8);
 
-    assert_eq!(read_value(grid.value(1, 2), Register::VALUE), 7);
-    assert_eq!(read_value(grid.value(1, 2), Register::BOTTOM), 1);
-    assert_eq!(read_value(grid.value(1, 2), Register::RIGHT), 8);
+    assert_eq!(read_value(grid.value(1, 2), Register::Value), 7);
+    assert_eq!(read_value(grid.value(1, 2), Register::Bottom), 1);
+    assert_eq!(read_value(grid.value(1, 2), Register::Right), 8);
   }
 
   #[test]
@@ -217,26 +217,26 @@ mod tests {
 
   #[test]
   fn write_values() {
-    assert_eq!(write_value(0, 5, Register::VALUE), 5);
-    assert_eq!(write_value(0, 5, Register::LEFT), 0b0101_0000);
-    assert_eq!(write_value(0, 5, Register::TOP), 0b0101_0000_0000);
+    assert_eq!(write_value(0, 5, Register::Value), 5);
+    assert_eq!(write_value(0, 5, Register::Left), 0b0101_0000);
+    assert_eq!(write_value(0, 5, Register::Top), 0b0101_0000_0000);
 
-    let mut value = write_value(0, 5, Register::VALUE);
-    value = write_value(value, 3, Register::LEFT);
-    value = write_value(value, 7, Register::TOP);
+    let mut value = write_value(0, 5, Register::Value);
+    value = write_value(value, 3, Register::Left);
+    value = write_value(value, 7, Register::Top);
     assert_eq!(value, 0b0111_0011_0101);
   }
 
   #[test]
   fn read_values() {
-    assert_eq!(read_value(0b0101, Register::VALUE), 5);
-    assert_eq!(read_value(0b0101_0000, Register::LEFT), 5);
-    assert_eq!(read_value(0b0101_0000_0000, Register::TOP), 5);
+    assert_eq!(read_value(0b0101, Register::Value), 5);
+    assert_eq!(read_value(0b0101_0000, Register::Left), 5);
+    assert_eq!(read_value(0b0101_0000_0000, Register::Top), 5);
 
-    assert_eq!(read_value(0b0111_0011_0101, Register::VALUE), 5);
-    assert_eq!(read_value(0b0111_0011_0101, Register::LEFT), 3);
-    assert_eq!(read_value(0b0111_0011_0101, Register::TOP), 7);
-    assert_eq!(read_value(0b0110_0111_0011_0101, Register::RIGHT), 6);
-    assert_eq!(read_value(0b0010_0110_0111_0011_0101, Register::BOTTOM), 2);
+    assert_eq!(read_value(0b0111_0011_0101, Register::Value), 5);
+    assert_eq!(read_value(0b0111_0011_0101, Register::Left), 3);
+    assert_eq!(read_value(0b0111_0011_0101, Register::Top), 7);
+    assert_eq!(read_value(0b0110_0111_0011_0101, Register::Right), 6);
+    assert_eq!(read_value(0b0010_0110_0111_0011_0101, Register::Bottom), 2);
   }
 }

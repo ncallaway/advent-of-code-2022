@@ -4,13 +4,13 @@ pub struct Computer {
   pub running: Option<InstructionExecution>
 }
 
-#[derive(PartialEq, Copy, Clone, Debug)]
+#[derive(PartialEq, Eq, Copy, Clone, Debug)]
 pub enum Instruction {
   Addx(i32),
   Noop
 }
 
-#[derive(PartialEq)]
+#[derive(PartialEq, Eq)]
 pub struct InstructionExecution {
   instruction: Instruction,
   start_cycle: u32,
