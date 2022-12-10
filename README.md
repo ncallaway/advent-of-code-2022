@@ -12,6 +12,12 @@ These are starting out in Rust, because I'm not very good at Rust.
 - `[puzzle]` is one of `puzzle-1 | puzzle-2`
 - `[type]` is one of `sample | puzzle`, where `sample` runs with the sample input, and `puzzle` runs with the puzzle input
 
+### Development
+
+If doing development, ensure the git hooks are set:
+
+`ln -s $(readlink -f .hooks/pre-push) .git/hooks/pre-push`
+
 ## Notes
 
 - Day 8, Puzzle 2: I'm not thrilled with the quality of this. There's a lot of copy and paste code, feels like it could be a lot cleaner.

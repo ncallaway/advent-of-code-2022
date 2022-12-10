@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# fail if any command fails
+set -e
+
+cargo clippy -- -Dwarnings
+cargo rustc -- -Dwarnings
+cargo test
