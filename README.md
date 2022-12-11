@@ -21,6 +21,7 @@ If doing development, ensure the git hooks are set:
 ## Notes
 
 - Day 8, Puzzle 2: I'm not thrilled with the quality of this. There's a lot of copy and paste code, feels like it could be a lot cleaner.
+- Day 11: Very messy, but I was tired so I didn't clean it up.
 
 ## Puzzles
 ### Day 1
