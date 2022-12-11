@@ -175,8 +175,13 @@ Sum Signal Strength: 0
 
 ```sh
 #puzzle-1
+$ cargo run -rq day-11 puzzle-1 puzzle
+(36.609µs)
+Combined Inspections: 78678
 
 #puzzle-2
-
+$ cargo run -rq day-11 puzzle-2 puzzle
+(5.734173ms)
+Combined Inspections: 15333249714
 ```
 
